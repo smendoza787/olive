@@ -43,8 +43,8 @@ const PillTag = styled.a`
   }
   &:hover {
     position: relative;
-    bottom: 5px;
-    box-shadow: 0px 5px 0px #000;
+    bottom: 3px;
+    box-shadow: 0px 3px 0px #000;
   }
 `
 
