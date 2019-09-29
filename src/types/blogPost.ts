@@ -1,6 +1,7 @@
 export interface BlogPost {
-  title: string;
-  author: string;
-  date: string;
+  title: string
+  image: { file: { url: string } }
+  author: string
+  date: string
   content: { content: any }
 }
