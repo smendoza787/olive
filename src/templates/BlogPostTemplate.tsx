@@ -19,10 +19,11 @@ const BackLink = styled(Link)`
 
 const BlogPostTitle = styled.h1`
   font-family: 'Quicksand', serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 3rem 0;
+  width: 80%;
 `
 
 const BlogPostImg = styled.div<{ src: string }>`
