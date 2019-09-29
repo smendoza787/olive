@@ -10,6 +10,13 @@ const BlogPostListItemWrapper = styled.div`
   padding: 1rem;
 `
 
+const BPImage = styled.div<{ src: string }>`
+    height: 15rem;
+    background-size: cover;
+    background-position: center;
+    background-image: url(${({ src }) => src && src});
+  `
+
 interface BlogPostListItemProps {
   blogPost: BlogPost
 }
@@ -17,13 +24,6 @@ interface BlogPostListItemProps {
 const BlogPostListItem = ({ blogPost }: BlogPostListItemProps) => {
   const richContent = JSON.parse(blogPost.content.content)
   const imageSrc = 'https://' + blogPost.image.file.url.slice(2)
-
-  const BPImage = styled.div<{ src: string }>`
-    height: 15rem;
-    background-size: cover;
-    background-position: center;
-    background-image: url(${({ src }) => src && src});
-  `
 
   return (
     <BlogPostListItemWrapper>
