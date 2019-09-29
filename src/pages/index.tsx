@@ -4,14 +4,15 @@ import React from 'react'
 import BlogPostList from '../components/BlogPostList'
 import Layout from '../components/layout'
 import { transformAllContentfulBlogPost } from '../helpers/graphql'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { desktopOnly } from '../helpers/styled'
 
 const HeaderWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 3rem 0;
+  margin-top: 3rem;
 `
 
 const HeaderText = styled.h1`
@@ -30,9 +31,9 @@ const PillList = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  @media screen and (min-width: 800px) {
+  ${desktopOnly`
     flex-direction: row;
-  }
+  `}
 `
 
 const PillListTuple = styled.div`
@@ -53,7 +54,7 @@ const PillTag = styled.a`
   justify-content: center;
   align-items: center;
   width: 7.5rem;
-  height: 2rem;
+  height: 2.25rem;
 
   &:not(:last-child) {
     margin-right: 1rem;
@@ -65,11 +66,11 @@ const PillTag = styled.a`
     box-shadow: 0px 3px 0px #000;
   }
 
-  @media screen and (min-width: 800px) {
+  ${desktopOnly`
     width: initial;
     height: initial;
     padding: 0 1rem;
-  }
+  `}
 `
 
 const IndexPage = () => {
@@ -107,12 +108,10 @@ const IndexPage = () => {
           <PillListTuple>
             <PillTag href="#">JavaScript</PillTag>
             <PillTag href="#">TypeScript</PillTag>
-          </PillListTuple>
-          <PillListTuple>
             <PillTag href="#">React</PillTag>
-            <PillTag href="#">Gatsby.js</PillTag>
           </PillListTuple>
           <PillListTuple>
+            <PillTag href="#">Gatsby.js</PillTag>
             <PillTag href="#">Java</PillTag>
             <PillTag href="#">AWS</PillTag>
           </PillListTuple>
