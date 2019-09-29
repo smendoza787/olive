@@ -1,13 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-
+import moment from 'moment'
 import { BlogPost } from '../../types/blogPost'
 
 const BlogPostListItemWrapper = styled.div`
   margin: 1rem;
   padding: 1rem;
   font-family: 'Roboto Slab', sans-serif;
+`
+
+const BPTitle = styled.h3`
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 2.5rem;
+`
+
+const BPTimestamp = styled.p`
+  font-size: 0.9rem;
+  color: lightgray;
+`
+
+const BPHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 `
 
 const BPImage = styled.div<{ src: string }>`
@@ -21,17 +37,23 @@ interface BlogPostListItemProps {
   blogPost: BlogPost
 }
 
+const prettyPrintDate = (date: any) => `${moment(date).fromNow()}`
+
 const BlogPostListItem = ({ blogPost }: BlogPostListItemProps) => {
   const richContent = JSON.parse(blogPost.content.content)
   const imageSrc = 'https://' + blogPost.image.file.url.slice(2)
 
   return (
     <BlogPostListItemWrapper>
+      <BPHeader>
+        <BPTitle>{blogPost.title}</BPTitle>
+        <BPTimestamp>
+          <i className="fas fa-calendar-edit">&nbsp;</i>
+          {prettyPrintDate(blogPost.date)}
+        </BPTimestamp>
+      </BPHeader>
       <BPImage src={imageSrc} />
-      <h3>{blogPost.title}</h3>
-      <h3>author: {blogPost.author}</h3>
-      <p>date: {blogPost.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(richContent) }} />
+      <div dangerouslySetInnerHTML={{ __html: `${documentToHtmlString(richContent).slice(0, 500)}...` }} />
     </BlogPostListItemWrapper>
   )
 }

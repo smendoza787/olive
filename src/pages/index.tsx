@@ -33,12 +33,18 @@ const PillList = styled.div`
 const PillTag = styled.a`
   text-decoration: none;
   color: #000;
-  padding: 0 0.75rem;
-  border-radius: 500px;
+  padding: 0.1rem 1.5rem;
+  border-radius: 5px;
   border: 2px solid #000;
   font-size: 1rem;
+  box-shadow: 0px 1px 0px #000;
   &:not(:last-child) {
     margin-right: 1rem;
+  }
+  &:hover {
+    position: relative;
+    bottom: 5px;
+    box-shadow: 0px 5px 0px #000;
   }
 `
 
@@ -52,7 +58,6 @@ const IndexPage = () => {
               id
               date
               title
-              author
               image {
                 file {
                   url
@@ -72,7 +77,7 @@ const IndexPage = () => {
     <Layout>
       <HeaderWrapper>
         <HeaderText>Quicksand</HeaderText>
-        <SubheaderText>Just a codey boi trying to stay afloat in the world of technology, based in Denver.</SubheaderText>
+        <SubheaderText>Just a human trying to stay afloat in the world of full stack development, based in Denver.</SubheaderText>
         <PillList>
           <PillTag href="#">JavaScript</PillTag>
           <PillTag href="#">TypeScript</PillTag>

@@ -25,9 +25,10 @@ const Layout = ({ children }: Props) => (
           title={data.site.siteMetadata.title}
           meta={[
             { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'keywords', content: 'sample, something' }
           ]}
         >
+          <script src="https://kit.fontawesome.com/e2d827be2b.js" />
           <html lang="en" />
         </Helmet>
         <div
