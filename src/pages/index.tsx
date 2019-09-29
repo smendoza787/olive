@@ -83,6 +83,7 @@ const IndexPage = () => {
               id
               date
               title
+              slug
               description
               image {
                 file {

@@ -9,7 +9,10 @@ import { desktopOnly } from '../../helpers/styled'
 const BlogPostListItemWrapper = styled.div`
   padding: 3rem 0;
   font-family: 'Roboto Slab', sans-serif;
-  border-bottom: 1px solid lightgray;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid lightgray;
+  }
 `
 
 const BPTitle = styled(Link)`
@@ -20,6 +23,7 @@ const BPTitle = styled(Link)`
   margin-bottom: 1rem;
   text-align: center;
   font-size: 1.75rem;
+  line-height: 1.75rem;
 `
 
 const BPTimestamp = styled.p`
@@ -35,25 +39,47 @@ const BPHeader = styled.div`
 
   ${desktopOnly`
     flex-direction: row;
+    justify-content: space-between;
   `}
 `
 
-const BPImage = styled.div<{ src: string }>`
+const BPImage = styled(Link)<{ src: string }>`
   width: 100%;
   height: 10rem;
-  flex-grow: 2;
   background-size: cover;
   background-position: center;
   background-image: url(${({ src }) => src});
+
+  ${desktopOnly`
+    width: 90rem;
+  `}
 `
 const BPBody = styled.div`
   display: flex;
   flex-direction: column;
+
+  ${desktopOnly`
+    flex-direction: row;
+  `}
 `
 
-const BpRichContent = styled.div`
+const BPRichContent = styled.div`
   padding: 1rem 0;
   text-align: justify;
+
+  ${desktopOnly`
+    padding: 0;
+  `}
+`
+
+const BPContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  ${desktopOnly`
+    padding-left: 1rem;
+  `}
 `
 
 interface BlogPostListItemProps {
@@ -69,15 +95,18 @@ const BlogPostListItem = ({ blogPost }: BlogPostListItemProps) => {
   return (
     <BlogPostListItemWrapper>
       <BPHeader>
-        <BPTitle to="/">{blogPost.title}</BPTitle>
+        <BPTitle to={`/${blogPost.slug}`}>{blogPost.title}</BPTitle>
         <BPTimestamp>
           <i className="fas fa-calendar-edit">&nbsp;</i>
           {prettyPrintDate(blogPost.date)}
         </BPTimestamp>
       </BPHeader>
       <BPBody>
-        <BPImage src={imageSrc} />
-        <BpRichContent dangerouslySetInnerHTML={{ __html: `${documentToHtmlString(richContent).slice(0, 250)}...` }} />
+        <BPImage to={`/${blogPost.slug}`} src={imageSrc} />
+        <BPContentWrapper>
+          <BPRichContent dangerouslySetInnerHTML={{ __html: `${documentToHtmlString(richContent).slice(0, 250)}...` }} />
+          <Link to={`/${blogPost.slug}`}>Read more</Link>
+        </BPContentWrapper>
       </BPBody>
     </BlogPostListItemWrapper>
   )

@@ -4,5 +4,6 @@ export interface BlogPost {
   image: { file: { url: string } }
   author: string
   date: string
+  slug: string
   content: { content: any }
 }
