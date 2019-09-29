@@ -73,32 +73,8 @@ const PillTag = styled.a`
   `}
 `
 
-const IndexPage = () => {
-  const allBlogPosts = transformAllContentfulBlogPost(
-    useStaticQuery(graphql`
-      query {
-        allContentfulBlogPost {
-          edges {
-            node {
-              id
-              date
-              title
-              slug
-              description
-              image {
-                file {
-                  url
-                }
-              }
-              content {
-                content
-              }
-            }
-          }
-        }
-      }
-    `)
-  )
+const IndexPage = ({ data }: { data: any }) => {
+  const allBlogPosts = transformAllContentfulBlogPost(data)
 
   return (
     <Layout>
@@ -124,3 +100,27 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query {
+    allContentfulBlogPost {
+      edges {
+        node {
+          id
+          date
+          title
+          slug
+          description
+          image {
+            file {
+              url
+            }
+          }
+          content {
+            content
+          }
+        }
+      }
+    }
+  }
+`
