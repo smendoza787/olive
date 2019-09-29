@@ -1,10 +1,10 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import React from 'react'
 
 import BlogPostList from '../components/BlogPostList'
 import Layout from '../components/layout'
 import { transformAllContentfulBlogPost } from '../helpers/graphql'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { desktopOnly } from '../helpers/styled'
 
 const HeaderWrapper = styled.div`
@@ -26,13 +26,13 @@ const SubheaderText = styled.p`
 `
 
 const PillList = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-
+  display: none;
   ${desktopOnly`
+    display: flex;
     flex-direction: row;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
   `}
 `
 

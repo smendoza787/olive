@@ -1,14 +1,17 @@
-import styled from "styled-components"
-import { Link } from "gatsby"
-import { desktopOnly } from "../../helpers/styled"
-
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import { desktopOnly } from '../../helpers/styled'
 
 export const BlogPostListItemWrapper = styled.div`
-  padding: 3rem 0;
+  padding-bottom: 3rem;
   font-family: 'Roboto Slab', sans-serif;
 
   &:not(:last-child) {
     border-bottom: 1px solid lightgray;
+  }
+
+  &:not(:first-child) {
+    padding-top: 3rem;
   }
 `
 
@@ -26,7 +29,7 @@ export const BPTitle = styled(Link)`
 export const BPTimestamp = styled.p`
   font-size: 0.8rem;
   color: lightgray;
-  text-align: center;
+  margin: 0;
 `
 
 export const BPHeader = styled.div`
@@ -34,6 +37,7 @@ export const BPHeader = styled.div`
   flex-direction: column;
   font-size: 2rem;
   align-items: center;
+  padding: 0.75rem 0;
 
   ${desktopOnly`
     flex-direction: row;

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import { prettyPrintDate } from '../helpers/date'
-import { BPHeader, BPTimestamp, BPRichContent } from '../components/BlogPostList/styled'
+import { BPTimestamp, BPRichContent } from '../components/BlogPostList/styled'
 import Layout from '../components/layout'
 import { transformContentfulBlogPost } from '../helpers/graphql'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
@@ -22,8 +22,14 @@ const BlogPostTitle = styled.h1`
   font-size: 2.5rem;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 3rem 0;
-  width: 80%;
+  margin: 0;
+`
+
+const BlogPostHeader = styled.div`
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const BlogPostImg = styled.div<{ src: string }>`
@@ -35,6 +41,7 @@ const BlogPostImg = styled.div<{ src: string }>`
   background-size: cover;
   background-position: center;
   background-image: url(${({ src }) => src});
+  margin-bottom: 2rem;
 `
 
 const BlogPostTemplate = ({ data }: { data: any }) => {
@@ -49,14 +56,14 @@ const BlogPostTemplate = ({ data }: { data: any }) => {
       <PageHeader>
         <BackLink to="/">Back</BackLink>
       </PageHeader>
-      <BlogPostImg src={imageSrc} />
-      <BPHeader>
+      <BlogPostHeader>
         <BlogPostTitle>{blogPost.title}</BlogPostTitle>
         <BPTimestamp>
           <i className="fas fa-calendar-edit">&nbsp;</i>
           {prettyPrintDate(blogPost.date)}
         </BPTimestamp>
-      </BPHeader>
+      </BlogPostHeader>
+      <BlogPostImg src={imageSrc} />
       <BPRichContent dangerouslySetInnerHTML={{ __html: documentToHtmlString(richContent) }} />
     </Layout>
   )
