@@ -5,17 +5,17 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { BlogPost } from '../../types/blogPost'
 
 const BlogPostListItemWrapper = styled.div`
-  border: 3px solid dodgerblue;
   margin: 1rem;
   padding: 1rem;
+  font-family: 'Roboto Slab', sans-serif;
 `
 
 const BPImage = styled.div<{ src: string }>`
-    height: 15rem;
-    background-size: cover;
-    background-position: center;
-    background-image: url(${({ src }) => src && src});
-  `
+  height: 15rem;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${({ src }) => src});
+`
 
 interface BlogPostListItemProps {
   blogPost: BlogPost
