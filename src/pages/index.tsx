@@ -30,7 +30,6 @@ const PillList = styled.div`
   ${desktopOnly`
     display: flex;
     flex-direction: row;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
   `}
