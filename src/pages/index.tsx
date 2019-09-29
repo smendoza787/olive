@@ -26,25 +26,49 @@ const SubheaderText = styled.p`
 
 const PillList = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
+  @media screen and (min-width: 800px) {
+    flex-direction: row;
+  }
+`
+
+const PillListTuple = styled.div`
+  padding: 5px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 `
 
 const PillTag = styled.a`
   text-decoration: none;
   color: #000;
-  padding: 0.1rem 1.5rem;
   border-radius: 5px;
   border: 2px solid #000;
   font-size: 1rem;
   box-shadow: 0px 1px 0px #000;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 7.5rem;
+  height: 2rem;
+
   &:not(:last-child) {
     margin-right: 1rem;
   }
+
   &:hover {
     position: relative;
     bottom: 3px;
     box-shadow: 0px 3px 0px #000;
+  }
+
+  @media screen and (min-width: 800px) {
+    width: initial;
+    height: initial;
+    padding: 0 1rem;
   }
 `
 
@@ -58,6 +82,7 @@ const IndexPage = () => {
               id
               date
               title
+              description
               image {
                 file {
                   url
@@ -79,11 +104,18 @@ const IndexPage = () => {
         <HeaderText>Quicksand</HeaderText>
         <SubheaderText>Just a human trying to stay afloat in the world of full stack development, based in Denver.</SubheaderText>
         <PillList>
-          <PillTag href="#">JavaScript</PillTag>
-          <PillTag href="#">TypeScript</PillTag>
-          <PillTag href="#">React</PillTag>
-          <PillTag href="#">Gatsby.js</PillTag>
-          <PillTag href="#">Java</PillTag>
+          <PillListTuple>
+            <PillTag href="#">JavaScript</PillTag>
+            <PillTag href="#">TypeScript</PillTag>
+          </PillListTuple>
+          <PillListTuple>
+            <PillTag href="#">React</PillTag>
+            <PillTag href="#">Gatsby.js</PillTag>
+          </PillListTuple>
+          <PillListTuple>
+            <PillTag href="#">Java</PillTag>
+            <PillTag href="#">AWS</PillTag>
+          </PillListTuple>
         </PillList>
       </HeaderWrapper>
       <BlogPostList posts={allBlogPosts} />
