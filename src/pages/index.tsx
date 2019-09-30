@@ -78,7 +78,7 @@ const IndexPage = ({ data }: { data: any }) => {
   return (
     <Layout>
       <HeaderWrapper>
-        <HeaderText>Quicksand</HeaderText>
+        <HeaderText>Quicksand 🥴</HeaderText>
         <SubheaderText>Just a human trying to stay afloat in the world of full stack development, based in Denver.</SubheaderText>
         <PillList>
           <PillListTuple>
