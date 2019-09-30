@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import { transformAllContentfulBlogPost } from '../helpers/graphql'
 import styled from 'styled-components'
 import { desktopOnly } from '../helpers/styled'
+import getDopeMoji from '../components/DopeMoji'
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -98,10 +99,10 @@ const IndexPage = ({ data }: { data: any }) => {
     <Layout>
       <HeaderWrapper>
         <HeaderText>
-          Quicksand <DesktopEmoji>🧶</DesktopEmoji>
+          Quicksand <DesktopEmoji>{getDopeMoji()}</DesktopEmoji>
         </HeaderText>
         <SubheaderText>Just a human trying to stay afloat in the world of full stack development, based in Denver.</SubheaderText>
-        <MobileEmoji>🧶</MobileEmoji>
+        <MobileEmoji>{getDopeMoji()}</MobileEmoji>
         <PillList>
           <PillListTuple>
             <PillTag href="#">JavaScript</PillTag>
