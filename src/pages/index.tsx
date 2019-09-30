@@ -1,12 +1,13 @@
 import { graphql } from 'gatsby'
-import React from 'react'
+import React, { Fragment } from 'react'
+import Typist from 'react-typist'
+import styled from 'styled-components'
 
 import BlogPostList from '../components/BlogPostList'
+import DopeMoji from '../components/DopeMoji'
 import Layout from '../components/layout'
 import { transformAllContentfulBlogPost } from '../helpers/graphql'
-import styled from 'styled-components'
-import { desktopOnly } from '../helpers/styled'
-import DopeMoji from '../components/DopeMoji'
+import { desktopOnly, tabletOnly } from '../helpers/styled'
 
 const HeaderWrapper = styled.div`
   display: flex;
@@ -22,14 +23,33 @@ const HeaderText = styled.h1`
 `
 
 const SubheaderText = styled.p`
+  width: 100%;
+  height: 4rem;
+  max-width: 35rem;
   font-family: 'Roboto Slab';
-  text-align: center;
+  text-align: justify;
+  padding-bottom: 2rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid lightgray;
+
+  .Typist {
+    display: inline;
+  }
+
+  ${tabletOnly`
+    border-bottom: none;
+  `}
 `
 
 const PillList = styled.div`
   display: none;
-  ${desktopOnly`
+
+  ${tabletOnly`
     display: flex;
+    flex-direction: column;
+  `}
+
+  ${desktopOnly`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -77,7 +97,7 @@ const DesktopEmoji = styled.span`
   display: none;
   margin-left: 1rem;
 
-  ${desktopOnly`
+  ${tabletOnly`
     display: inline;
   `}
 `
@@ -85,26 +105,49 @@ const DesktopEmoji = styled.span`
 const MobileEmoji = styled.span`
   display: flex;
   font-size: 4rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  justify-content: center;
 
-  ${desktopOnly`
+  ${tabletOnly`
     display: none;
   `}
 `
 
 const IndexPage = ({ data }: { data: any }) => {
   const allBlogPosts = transformAllContentfulBlogPost(data)
+  const quotes = [
+    `Hello, my name is Sergio and I'm a Full Stack web developer based in Denver, CO 🙂`,
+    `Trying to stay afloat in the world of full stack development`,
+    `To be honest I haven't put much thought into what I'm going to put in here...`,
+    `...And now I'm realizing that I can't put this thing on a loop`,
+    `It's fine, I doubt anyone will actually read this far...`,
+    `Having 🛩 way too 🚀 much fun with 🎱 this emoji support`,
+    `Let's play the waiting game...`,
+    `Wanna know the rules?`
+  ]
 
   return (
     <Layout>
       <HeaderWrapper>
         <HeaderText>
           Quicksand{' '}
+          <MobileEmoji>
+            <DopeMoji size="lg" />
+          </MobileEmoji>
           <DesktopEmoji>
             <DopeMoji size="lg" />
           </DesktopEmoji>
         </HeaderText>
-        <SubheaderText>Just a human trying to stay afloat in the world of full stack development, based in Denver.</SubheaderText>
+        <SubheaderText>
+          <Typist>
+            {quotes.map((quote, i) => (
+              <span key={i}>
+                {quote}
+                <Typist.Backspace count={quote.length} delay={1500} />
+              </span>
+            ))}
+          </Typist>
+        </SubheaderText>
         <PillList>
           <PillListTuple>
             <PillTag href="#">JavaScript</PillTag>
