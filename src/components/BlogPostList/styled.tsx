@@ -27,22 +27,23 @@ export const BPTitle = styled(Link)`
 `
 
 export const BPTimestamp = styled.p`
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: lightgray;
-  margin: 0;
+  padding-top: 1rem;
+
+  ${desktopOnly`
+    padding-top: 0;
+    margin-bottom: 0;
+  `}
 `
 
 export const BPHeader = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   font-size: 2rem;
   align-items: center;
   padding: 0.75rem 0;
-
-  ${desktopOnly`
-    flex-direction: row;
-    justify-content: space-between;
-  `}
 `
 
 export const BPImage = styled(Link)<{ src: string }>`

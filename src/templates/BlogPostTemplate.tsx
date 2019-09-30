@@ -8,6 +8,8 @@ import { BPTimestamp, BPRichContent } from '../components/BlogPostList/styled'
 import Layout from '../components/layout'
 import { transformContentfulBlogPost } from '../helpers/graphql'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import DopeMoji from '../components/DopeMoji'
+import { desktopOnly } from '../helpers/styled'
 
 const PageHeader = styled.div`
   margin: 3rem 0;
@@ -26,10 +28,17 @@ const BlogPostTitle = styled.h1`
 `
 
 const BlogPostHeader = styled.div`
-  margin-bottom: 2rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+
+  ${desktopOnly`
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  `}
 `
 
 const BlogPostImg = styled.div<{ src: string }>`
@@ -57,6 +66,7 @@ const BlogPostTemplate = ({ data }: { data: any }) => {
         <BackLink to="/">Back</BackLink>
       </PageHeader>
       <BlogPostHeader>
+        <DopeMoji size="lg" />
         <BlogPostTitle>{blogPost.title}</BlogPostTitle>
         <BPTimestamp>
           <i className="fas fa-calendar-edit">&nbsp;</i>
