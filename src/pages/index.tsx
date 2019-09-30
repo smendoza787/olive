@@ -72,13 +72,23 @@ const PillTag = styled.a`
   `}
 `
 
+const Emoji = styled.span`
+  display: none;
+
+  ${desktopOnly`
+    display: inline;
+  `}
+`
+
 const IndexPage = ({ data }: { data: any }) => {
   const allBlogPosts = transformAllContentfulBlogPost(data)
 
   return (
     <Layout>
       <HeaderWrapper>
-        <HeaderText>Quicksand 🥴</HeaderText>
+        <HeaderText>
+          Quicksand <Emoji>🥴</Emoji>
+        </HeaderText>
         <SubheaderText>Just a human trying to stay afloat in the world of full stack development, based in Denver.</SubheaderText>
         <PillList>
           <PillListTuple>

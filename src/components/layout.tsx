@@ -28,6 +28,7 @@ const Layout = ({ children }: Props) => (
             { name: 'keywords', content: 'sample, something' }
           ]}
         >
+          <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
           <script src="https://kit.fontawesome.com/e2d827be2b.js" />
           <html lang="en" />
         </Helmet>
