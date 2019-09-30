@@ -11,7 +11,7 @@ export const BlogPostListItemWrapper = styled.div`
   }
 
   &:not(:first-child) {
-    padding-top: 3rem;
+    padding-top: 2.5rem;
   }
 `
 

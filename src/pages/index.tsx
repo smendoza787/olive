@@ -72,11 +72,22 @@ const PillTag = styled.a`
   `}
 `
 
-const Emoji = styled.span`
+const DesktopEmoji = styled.span`
   display: none;
+  margin-left: 1rem;
 
   ${desktopOnly`
     display: inline;
+  `}
+`
+
+const MobileEmoji = styled.span`
+  display: flex;
+  font-size: 4rem;
+  margin-top: 3rem;
+
+  ${desktopOnly`
+    display: none;
   `}
 `
 
@@ -87,9 +98,10 @@ const IndexPage = ({ data }: { data: any }) => {
     <Layout>
       <HeaderWrapper>
         <HeaderText>
-          Quicksand <Emoji>🥴</Emoji>
+          Quicksand <DesktopEmoji>🧶</DesktopEmoji>
         </HeaderText>
         <SubheaderText>Just a human trying to stay afloat in the world of full stack development, based in Denver.</SubheaderText>
+        <MobileEmoji>🧶</MobileEmoji>
         <PillList>
           <PillListTuple>
             <PillTag href="#">JavaScript</PillTag>
