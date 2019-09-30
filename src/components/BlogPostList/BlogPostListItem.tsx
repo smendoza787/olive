@@ -4,7 +4,6 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import Link from 'gatsby-link'
 import { prettyPrintDate } from '../../helpers/date'
 import { BlogPostListItemWrapper, BPHeader, BPTitle, BPTimestamp, BPBody, BPImage, BPContentWrapper, BPRichContent } from './styled'
-import DopeMoji from '../DopeMoji'
 
 interface BlogPostListItemProps {
   blogPost: BlogPost
@@ -17,9 +16,7 @@ const BlogPostListItem = ({ blogPost }: BlogPostListItemProps) => {
   return (
     <BlogPostListItemWrapper>
       <BPHeader>
-        <BPTitle to={`/${blogPost.slug}`}>
-          <DopeMoji size="md" /> &nbsp; {blogPost.title}
-        </BPTitle>
+        <BPTitle to={`/${blogPost.slug}`}>{blogPost.title}</BPTitle>
         <BPTimestamp>
           <i className="fas fa-calendar-edit">&nbsp;</i>
           {prettyPrintDate(blogPost.date)}
