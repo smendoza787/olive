@@ -38,16 +38,12 @@ const SubheaderText = styled.p`
 
 const PillList = styled.div`
   display: none;
-
-  ${tabletOnly`
-    display: flex;
-    flex-direction: column;
-  `}
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 
   ${desktopOnly`
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    display: flex;
   `}
 `
 

@@ -17,33 +17,38 @@ export const BlogPostListItemWrapper = styled.div`
 
 export const BPTitle = styled(Link)`
   font-family: 'Roboto Slab', sans-serif;
-  margin-right: 0.75rem;
   text-decoration: none;
   color: #000;
   margin-bottom: 1rem;
   text-align: center;
   font-size: 1.75rem;
   line-height: 1.75rem;
+
+  ${desktopOnly`
+    margin-right: 0.75rem;
+  `}
 `
 
 export const BPTimestamp = styled.p`
   font-size: 1rem;
   color: lightgray;
-  padding-top: 1rem;
 
   ${desktopOnly`
-    padding-top: 0;
     margin-bottom: 0;
   `}
 `
 
 export const BPHeader = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   font-size: 2rem;
   align-items: center;
   padding: 0.75rem 0;
+
+  ${desktopOnly`
+    flex-direction: row;
+  `}
 `
 
 export const BPImage = styled(Link)<{ src: string }>`
