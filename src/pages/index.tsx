@@ -1,6 +1,5 @@
 import { graphql } from 'gatsby'
 import React, { Fragment } from 'react'
-import Typist from 'react-typist'
 import styled from 'styled-components'
 
 import BlogPostList from '../components/BlogPostList'
@@ -31,10 +30,6 @@ const SubheaderText = styled.p`
   padding-bottom: 2rem;
   margin-bottom: 0;
   border-bottom: 1px solid lightgray;
-
-  .Typist {
-    display: inline;
-  }
 
   ${tabletOnly`
     border-bottom: none;
@@ -115,16 +110,6 @@ const MobileEmoji = styled.span`
 
 const IndexPage = ({ data }: { data: any }) => {
   const allBlogPosts = transformAllContentfulBlogPost(data)
-  const quotes = [
-    `Hello, my name is Sergio and I'm a Full Stack web developer based in Denver, CO 🙂`,
-    `Trying to stay afloat in the world of full stack development`,
-    `To be honest I haven't put much thought into what I'm going to put in here...`,
-    `...And now I'm realizing that I can't put this thing on a loop`,
-    `It's fine, I doubt anyone will actually read this far...`,
-    `Having 🛩 way too 🚀 much fun with 🎱 this emoji support`,
-    `Let's play the waiting game...`,
-    `Wanna know the rules?`
-  ]
 
   return (
     <Layout>
@@ -138,16 +123,6 @@ const IndexPage = ({ data }: { data: any }) => {
             <DopeMoji size="lg" />
           </DesktopEmoji>
         </HeaderText>
-        <SubheaderText>
-          <Typist>
-            {quotes.map((quote, i) => (
-              <span key={i}>
-                {quote}
-                <Typist.Backspace count={quote.length} delay={1500} />
-              </span>
-            ))}
-          </Typist>
-        </SubheaderText>
         <PillList>
           <PillListTuple>
             <PillTag href="#">JavaScript</PillTag>
