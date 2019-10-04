@@ -15,8 +15,15 @@ const PageHeader = styled.div`
   margin: 3rem 0;
 `
 
-const BackLink = styled(Link)`
-  font-family: 'Roboto Slab', sans-serif;
+const BackLinkWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  a {
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 1.25rem;
+    text-decoration: none;
+  }
 `
 
 const BlogPostTitle = styled.h1`
@@ -24,21 +31,34 @@ const BlogPostTitle = styled.h1`
   font-size: 2.5rem;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
-  margin: 0;
+  margin: 1rem 0;
 `
 
 const BlogPostHeader = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column-reverse;
   align-items: center;
 
   ${desktopOnly`
+    margin-bottom: 1.5rem;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
   `}
+`
+
+const BlogPostTitleDateWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ${desktopOnly`
+    align-items: flex-start;
+  `}
+`
+
+const DopeMojiNudgeWrapper = styled.div`
+  margin-bottom: 0.5rem;
 `
 
 const BlogPostImg = styled.div<{ src: string }>`
@@ -63,15 +83,21 @@ const BlogPostTemplate = ({ data }: { data: any }) => {
     <Layout>
       <Helmet title={`${blogPost.title} | ${siteTitle}`} />
       <PageHeader>
-        <BackLink to="/">Back</BackLink>
+        <BackLinkWrapper>
+          <Link to="/">👈&nbsp;&nbsp;Back</Link>
+        </BackLinkWrapper>
       </PageHeader>
       <BlogPostHeader>
-        <DopeMoji size="lg" />
-        <BlogPostTitle>{blogPost.title}</BlogPostTitle>
-        <BPTimestamp>
-          <i className="fas fa-calendar-edit">&nbsp;</i>
-          {prettyPrintDate(blogPost.date)}
-        </BPTimestamp>
+        <BlogPostTitleDateWrapper>
+          <BlogPostTitle>{blogPost.title}</BlogPostTitle>
+          <BPTimestamp>
+            <i className="fas fa-calendar-edit">&nbsp;</i>
+            {prettyPrintDate(blogPost.date)}
+          </BPTimestamp>
+        </BlogPostTitleDateWrapper>
+        <DopeMojiNudgeWrapper>
+          <DopeMoji size="lg" />
+        </DopeMojiNudgeWrapper>
       </BlogPostHeader>
       <BlogPostImg src={imageSrc} />
       <BPRichContent dangerouslySetInnerHTML={{ __html: documentToHtmlString(richContent) }} />

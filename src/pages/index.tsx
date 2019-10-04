@@ -21,20 +21,20 @@ const HeaderText = styled.h1`
   font-size: 3.5rem;
 `
 
-const SubheaderText = styled.p`
-  width: 100%;
-  height: 4rem;
-  max-width: 35rem;
-  font-family: 'Roboto Slab';
-  text-align: justify;
-  padding-bottom: 2rem;
-  margin-bottom: 0;
-  border-bottom: 1px solid lightgray;
+// const SubheaderText = styled.p`
+//   width: 100%;
+//   height: 4rem;
+//   max-width: 35rem;
+//   font-family: 'Roboto Slab';
+//   text-align: justify;
+//   padding-bottom: 2rem;
+//   margin-bottom: 0;
+//   border-bottom: 1px solid lightgray;
 
-  ${tabletOnly`
-    border-bottom: none;
-  `}
-`
+//   ${tabletOnly`
+//     border-bottom: none;
+//   `}
+// `
 
 const PillList = styled.div`
   display: none;

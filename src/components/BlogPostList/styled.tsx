@@ -32,6 +32,7 @@ export const BPTitle = styled(Link)`
 export const BPTimestamp = styled.p`
   font-size: 1rem;
   color: lightgray;
+  margin-bottom: 1.5rem;
 
   ${desktopOnly`
     margin-bottom: 0;
