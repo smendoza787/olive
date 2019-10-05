@@ -59,6 +59,10 @@ const BlogPostTitleDateWrapper = styled.div`
 
 const DopeMojiNudgeWrapper = styled.div`
   margin-bottom: 0.5rem;
+
+  ${desktopOnly`
+    margin-bottom: -50px;
+  `}
 `
 
 const BlogPostImg = styled.div<{ src: string }>`
