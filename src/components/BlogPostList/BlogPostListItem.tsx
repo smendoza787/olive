@@ -30,7 +30,7 @@ const BlogPostListItem = ({ blogPost }: BlogPostListItemProps) => {
       <BPBody>
         <BPImage to={`/${blogPost.slug}`} src={imageSrc} />
         <BPContentWrapper>
-          <BPRichContent dangerouslySetInnerHTML={{ __html: `${documentToHtmlString(richContent).slice(0, 250)}...` }} />
+          <BPRichContent dangerouslySetInnerHTML={{ __html: `${documentToHtmlString(richContent).slice(0, 200)}...` }} />
           <Link to={`/${blogPost.slug}`}>Read more</Link>
         </BPContentWrapper>
       </BPBody>

@@ -84,7 +84,7 @@ const BlogPostTemplate = ({ data }: { data: any }) => {
       <Helmet title={`${blogPost.title} | ${siteTitle}`} />
       <PageHeader>
         <BackLinkWrapper>
-          <Link to="/">👈&nbsp;&nbsp;Back</Link>
+          <Link to="/"><span style={{ fontSize: '1.5rem' }}>👈</span>&nbsp;&nbsp;Back</Link>
         </BackLinkWrapper>
       </PageHeader>
       <BlogPostHeader>
