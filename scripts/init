@@ -1,0 +1,17 @@
+#!/bin/bash
+
+usage() {
+    echo ""
+    echo "Provide Contentful API spaceId and accessToken by running the following:"
+    echo ""
+    echo "$ ./scripts/init <spaceId> <accessToken>"
+}
+
+if [ -z "$1" ] || [ -z "$2" ]
+then
+    usage
+else
+    touch .env.development
+    echo "SPACE_ID=$1" >> .env.development
+    echo "ACCESS_TOKEN=$2" >> .env.development
+fi
