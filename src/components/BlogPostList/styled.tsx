@@ -82,6 +82,7 @@ export const BPRichContent = styled.div`
   h3,
   h4 {
     font-family: 'Fredoka One', sans-serif;
+    margin-top: 2.5rem;
   }
 
   ${desktopOnly`
