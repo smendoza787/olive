@@ -58,6 +58,7 @@ export const BPImage = styled(Link)<{ src: string }>`
   background-size: cover;
   background-position: center;
   background-image: url(${({ src }) => src});
+  border-radius: 3px;
 
   ${desktopOnly`
     width: 30rem;
