@@ -8,12 +8,7 @@ import { BPTimestamp, BPRichContent } from '../components/BlogPostList/styled'
 import Layout from '../components/layout'
 import { transformContentfulBlogPost } from '../helpers/graphql'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import DopeMoji, { DopeMojiSize } from '../components/DopeMoji'
 import { desktopOnly } from '../helpers/styled'
-
-const PageHeader = styled.div`
-  margin: 3rem 0;
-`
 
 const BackLinkWrapper = styled.div`
   display: flex;
@@ -28,9 +23,8 @@ const BackLinkWrapper = styled.div`
 
 const BlogPostTitle = styled.h1`
   font-family: 'Fredoka One', serif;
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   background-color: rgba(255, 255, 255, 0.5);
-  margin: 1rem 0;
 `
 
 const BlogPostHeader = styled.div`
@@ -50,6 +44,7 @@ const BlogPostTitleDateWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 2rem;
 `
 
 const BlogPostImg = styled.div<{ src: string }>`
@@ -73,15 +68,7 @@ const BlogPostTemplate = ({ data }: { data: any }) => {
   return (
     <Layout>
       <Helmet title={`${blogPost.title} | ${siteTitle}`} />
-      <PageHeader>
-        <BackLinkWrapper>
-          <Link to="/">
-            <span style={{ fontSize: '1.5rem' }}>👈</span>&nbsp;&nbsp;Back
-          </Link>
-        </BackLinkWrapper>
-      </PageHeader>
       <BlogPostHeader>
-        <BlogPostImg src={imageSrc} />
         <BlogPostTitleDateWrapper>
           <BlogPostTitle>{blogPost.title}</BlogPostTitle>
           <BPTimestamp>
@@ -89,8 +76,14 @@ const BlogPostTemplate = ({ data }: { data: any }) => {
             {printDate(blogPost.date)}
           </BPTimestamp>
         </BlogPostTitleDateWrapper>
+        <BlogPostImg src={imageSrc} />
       </BlogPostHeader>
       <BPRichContent dangerouslySetInnerHTML={{ __html: documentToHtmlString(richContent) }} />
+      <BackLinkWrapper>
+        <Link to="/">
+          <span style={{ fontSize: '1.5rem' }}>👈</span>&nbsp;&nbsp;Back
+        </Link>
+      </BackLinkWrapper>
     </Layout>
   )
 }

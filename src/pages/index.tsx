@@ -11,7 +11,6 @@ const IndexPage = ({ data }: { data: any }) => {
 
   return (
     <Layout>
-      <SiteHeader />
       <BlogPostList posts={allBlogPosts} />
     </Layout>
   )

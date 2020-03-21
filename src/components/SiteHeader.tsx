@@ -9,11 +9,11 @@ const HeaderWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 `
 
 const HeaderText = styled.h1`
-  font-family: 'Pacifico', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 3.5rem;
 `
 

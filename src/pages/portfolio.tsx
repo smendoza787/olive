@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react'
+import Layout from '../components/layout'
+import SiteHeader from '../components/SiteHeader'
 
 function PortfolioPage() {
-  return (
-    <h1>Portfolio Page</h1>
-  )
+  return <Layout></Layout>
 }
 
 export default PortfolioPage

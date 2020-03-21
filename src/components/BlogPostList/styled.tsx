@@ -60,7 +60,7 @@ export const BPImage = styled(Link)<{ src: string }>`
   background-image: url(${({ src }) => src});
 
   ${desktopOnly`
-    width: 90rem;
+    width: 30rem;
   `}
 `
 export const BPBody = styled.div`
@@ -87,6 +87,23 @@ export const BPRichContent = styled.div`
 
   b {
     font-family: 'Fredoka One', sans-serif;
+  }
+
+  code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #000;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
   }
 
   hr {
