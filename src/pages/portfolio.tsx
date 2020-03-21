@@ -1,9 +1,13 @@
 import React from 'react'
 import Layout from '../components/layout'
-import SiteHeader from '../components/SiteHeader'
+import PortfolioBlock from '../components/PortfolioBlock'
 
 function PortfolioPage() {
-  return <Layout></Layout>
+  return (
+    <Layout>
+      <PortfolioBlock title="Stay Amigo" />
+    </Layout>
+  )
 }
 
 export default PortfolioPage

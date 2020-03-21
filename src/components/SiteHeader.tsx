@@ -18,14 +18,9 @@ const HeaderText = styled.h1`
 `
 
 const PillList = styled.div`
-  display: none;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-
-  ${desktopOnly`
-    display: flex;
-  `}
 `
 
 const PillListTuple = styled.div`
