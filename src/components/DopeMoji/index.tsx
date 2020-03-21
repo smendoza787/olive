@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
+export enum DopeMojiSize {
+  SMALL,
+  MEDIUM,
+  LARGE,
+}
+
 // prettier-ignore
 const dopeMojis = [
   '🤹‍', '🤯', '😐', '😫', '😛', '😩', '🤓', '👺', '🧶', '🧵', '🍪', '🚀', '🎡', '🏝', '🏜', '🏕', '🧬', '🎢', '🦀',
@@ -19,16 +25,16 @@ const dopeMojis = [
   '🍙', '🍚', '🍘', '🍥', '🥮', '🥠', '🍢', '🍡', '🍧', '🍨', '🍦', '🥧', '🍰', '🎂', '🍮', '🍭', '🍬', '🍫', '🍿',
   '🌰', '🧂', '🍩', '🍪', '🥜', '🍯', '🥛', '🍼', '🍵', '🥤', '🌋', '⛰', '🏔', '🗻', '🎊', '🎉', '🧨', '🧱', '🔮',
 ]
-const getRandomIdx = (arrLen: number): number => Math.floor(Math.random() * arrLen)
+const getRandomId = (arrLen: number): number => Math.floor(Math.random() * arrLen)
 
-const EmojiSizeWrapper = styled.span<{ size: 'lg' | 'md' | 'sm' }>`
+const EmojiSizeWrapper = styled.span<{ size: DopeMojiSize }>`
   font-size: ${({ size }) => {
     switch (size) {
-      case 'sm':
+      case DopeMojiSize.SMALL:
         return '1rem'
-      case 'md':
+      case DopeMojiSize.MEDIUM:
         return '2.5rem'
-      case 'lg':
+      case DopeMojiSize.LARGE:
         return '3.5rem'
       default:
         return '2rem'
@@ -37,11 +43,11 @@ const EmojiSizeWrapper = styled.span<{ size: 'lg' | 'md' | 'sm' }>`
 `
 
 interface DopeMojiProps {
-  size?: 'sm' | 'md' | 'lg'
+  size?: DopeMojiSize
 }
 
-const DopeMoji = ({ size = 'md' }: DopeMojiProps) => (
-  <EmojiSizeWrapper size={size}>{dopeMojis[getRandomIdx(dopeMojis.length)]}</EmojiSizeWrapper>
+const DopeMoji = ({ size = DopeMojiSize.MEDIUM }: DopeMojiProps) => (
+  <EmojiSizeWrapper size={size}>{dopeMojis[getRandomId(dopeMojis.length)]}</EmojiSizeWrapper>
 )
 
 export default DopeMoji

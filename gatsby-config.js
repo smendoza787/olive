@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Roboto Slab`, `Quicksand`],
+        fonts: [`Roboto Slab`, `Pacifico`, `Fredoka One`],
       },
     },
   ],
