@@ -11,7 +11,7 @@ const contentfulConfig = {
 
 module.exports = {
   siteMetadata: {
-    title: 'Quicksand: Full Stack Dev Blog',
+    title: 'Sergio Mendoza: Developer Blog',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
