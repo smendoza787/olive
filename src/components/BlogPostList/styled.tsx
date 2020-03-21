@@ -85,6 +85,16 @@ export const BPRichContent = styled.div`
     margin-top: 2.5rem;
   }
 
+  b {
+    font-family: 'Fredoka One', sans-serif;
+  }
+
+  hr {
+    height: 0;
+    border-bottom: 5px dotted black;
+    background-color: white;
+  }
+
   ${desktopOnly`
     padding: 0;
   `}
