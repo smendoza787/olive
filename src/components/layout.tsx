@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import './layout.css'
+import SiteHeader from './SiteHeader'
 
 type Props = {
   children: React.ReactNode
@@ -37,6 +38,7 @@ const Layout = ({ children }: Props) => (
             paddingTop: 0,
           }}
         >
+          <SiteHeader />
           {children}
         </div>
       </>

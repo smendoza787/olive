@@ -3,17 +3,12 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
-import { prettyPrintDate } from '../helpers/date'
+import { printDate } from '../helpers/date'
 import { BPTimestamp, BPRichContent } from '../components/BlogPostList/styled'
 import Layout from '../components/layout'
 import { transformContentfulBlogPost } from '../helpers/graphql'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import DopeMoji from '../components/DopeMoji'
 import { desktopOnly } from '../helpers/styled'
-
-const PageHeader = styled.div`
-  margin: 3rem 0;
-`
 
 const BackLinkWrapper = styled.div`
   display: flex;
@@ -27,42 +22,29 @@ const BackLinkWrapper = styled.div`
 `
 
 const BlogPostTitle = styled.h1`
-  font-family: 'Quicksand', serif;
-  font-size: 2.5rem;
-  text-align: center;
+  font-family: 'Fredoka One', serif;
+  font-size: 1.75rem;
   background-color: rgba(255, 255, 255, 0.5);
-  margin: 1rem 0;
 `
 
 const BlogPostHeader = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
 
   ${desktopOnly`
     margin-bottom: 1.5rem;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
   `}
 `
 
 const BlogPostTitleDateWrapper = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-
-  ${desktopOnly`
-    align-items: flex-start;
-  `}
-`
-
-const DopeMojiNudgeWrapper = styled.div`
-  margin-bottom: 0.5rem;
-
-  ${desktopOnly`
-    margin-bottom: -50px;
-  `}
+  margin-top: 2rem;
 `
 
 const BlogPostImg = styled.div<{ src: string }>`
@@ -74,7 +56,7 @@ const BlogPostImg = styled.div<{ src: string }>`
   background-size: cover;
   background-position: center;
   background-image: url(${({ src }) => src});
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `
 
 const BlogPostTemplate = ({ data }: { data: any }) => {
@@ -86,25 +68,22 @@ const BlogPostTemplate = ({ data }: { data: any }) => {
   return (
     <Layout>
       <Helmet title={`${blogPost.title} | ${siteTitle}`} />
-      <PageHeader>
-        <BackLinkWrapper>
-          <Link to="/"><span style={{ fontSize: '1.5rem' }}>👈</span>&nbsp;&nbsp;Back</Link>
-        </BackLinkWrapper>
-      </PageHeader>
       <BlogPostHeader>
         <BlogPostTitleDateWrapper>
           <BlogPostTitle>{blogPost.title}</BlogPostTitle>
           <BPTimestamp>
             <i className="fas fa-calendar-edit">&nbsp;</i>
-            {prettyPrintDate(blogPost.date)}
+            {printDate(blogPost.date)}
           </BPTimestamp>
         </BlogPostTitleDateWrapper>
-        <DopeMojiNudgeWrapper>
-          <DopeMoji size="lg" />
-        </DopeMojiNudgeWrapper>
+        <BlogPostImg src={imageSrc} />
       </BlogPostHeader>
-      <BlogPostImg src={imageSrc} />
       <BPRichContent dangerouslySetInnerHTML={{ __html: documentToHtmlString(richContent) }} />
+      <BackLinkWrapper>
+        <Link to="/">
+          <span style={{ fontSize: '1.5rem' }}>👈</span>&nbsp;&nbsp;Back
+        </Link>
+      </BackLinkWrapper>
     </Layout>
   )
 }

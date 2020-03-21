@@ -7,7 +7,7 @@ export const BlogPostListItemWrapper = styled.div`
   font-family: 'Roboto Slab', sans-serif;
 
   &:not(:last-child) {
-    border-bottom: 1px solid lightgray;
+    border-bottom: 2px dotted black;
   }
 
   &:not(:first-child) {
@@ -16,7 +16,7 @@ export const BlogPostListItemWrapper = styled.div`
 `
 
 export const BPTitle = styled(Link)`
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   text-decoration: none;
   color: #000;
   margin-bottom: 1rem;
@@ -60,7 +60,7 @@ export const BPImage = styled(Link)<{ src: string }>`
   background-image: url(${({ src }) => src});
 
   ${desktopOnly`
-    width: 90rem;
+    width: 30rem;
   `}
 `
 export const BPBody = styled.div`
@@ -77,6 +77,41 @@ export const BPRichContent = styled.div`
   padding: 1rem 0;
   text-align: justify;
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Fredoka One', sans-serif;
+    margin-top: 2.5rem;
+  }
+
+  b {
+    font-family: 'Fredoka One', sans-serif;
+  }
+
+  code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #000;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+  }
+
+  hr {
+    height: 0;
+    border-bottom: 5px dotted black;
+    background-color: white;
+  }
+
   ${desktopOnly`
     padding: 0;
   `}
@@ -85,9 +120,15 @@ export const BPRichContent = styled.div`
 export const BPContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  justify-content: space-between;
 
   ${desktopOnly`
     padding-left: 1rem;
   `}
+`
+
+export const BPInnerContentWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 `
