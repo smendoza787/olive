@@ -110,7 +110,7 @@ function isPortfolioPage() {
 }
 
 function isBlogPage() {
-  return getPathName() === '/'
+  return getPathName() !== '/portfolio'
 }
 
 export default function SiteHeader() {
