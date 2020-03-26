@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const ComingSoonText = styled.h1`
   font-family: 'Fredoka One', sans-serif;
   text-align: center;
-  margin: 1.5rem 0;
+  margin: 2.5rem 0;
 `
 
 function PortfolioPage() {
