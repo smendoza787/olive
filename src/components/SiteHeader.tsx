@@ -102,7 +102,7 @@ const MobileEmoji = styled.span`
 `
 
 function getPathName() {
-  return window && window.location && window.location.pathname
+  return typeof window !== `undefined` && window.location && window.location.pathname
 }
 
 function isPortfolioPage() {
