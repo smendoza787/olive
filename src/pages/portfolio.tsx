@@ -4,7 +4,7 @@ import PortfolioBlock from '../components/PortfolioBlock'
 import styled from 'styled-components'
 
 const ComingSoonText = styled.h1`
-  font-family: 'Pacifico', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   text-align: center;
   margin: 1.5rem 0;
 `
