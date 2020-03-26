@@ -30,7 +30,7 @@ const PillListTuple = styled.div`
   justify-content: center;
 `
 
-function renderDarkButton(props: StyledProps<{ isActive: boolean }>) {
+function renderDarkModeStyles(props: StyledProps<{ isActive: boolean }>) {
   if (props.isActive) {
     return css`
       a,
@@ -49,7 +49,7 @@ function renderDarkButton(props: StyledProps<{ isActive: boolean }>) {
 }
 
 const PillTag = styled.div<{ isActive: boolean }>`
-  ${renderDarkButton}
+  ${renderDarkModeStyles}
 
   a {
     text-decoration: none;
