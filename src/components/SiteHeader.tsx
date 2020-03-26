@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css, StyledProps } from 'styled-components'
 import DopeMoji, { DopeMojiSize } from '../components/DopeMoji'
 import { desktopOnly, tabletOnly } from '../helpers/styled'
 import { Link } from 'gatsby'
@@ -30,18 +30,39 @@ const PillListTuple = styled.div`
   justify-content: center;
 `
 
-const PillTag = styled(Link)`
-  text-decoration: none;
-  color: #000;
+function renderDarkButton(props: StyledProps<{ isActive: boolean }>) {
+  if (props.isActive) {
+    return css`
+      a,
+      a:visited {
+        color: #fff;
+      }
+      background-color: #2e2e2e;
+    `
+  }
+  return css`
+    a,
+    a:visited {
+      color: #000;
+    }
+  `
+}
+
+const PillTag = styled.div<{ isActive: boolean }>`
+  ${renderDarkButton}
+
+  a {
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.2rem 1rem;
+  }
+
   border-radius: 5px;
   border: 2px solid #000;
-  font-size: 1rem;
-  box-shadow: 0px 1px 0px #000;
+  box-shadow: 0px 2px 0px #000;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 7.5rem;
-  height: 2.25rem;
 
   &:not(:last-child) {
     margin-right: 1rem;
@@ -50,7 +71,7 @@ const PillTag = styled(Link)`
   &:hover {
     position: relative;
     bottom: 3px;
-    box-shadow: 0px 3px 0px #000;
+    box-shadow: 0px 5px 0px #000;
   }
 
   ${desktopOnly`
@@ -80,6 +101,18 @@ const MobileEmoji = styled.span`
   `}
 `
 
+function getPathName() {
+  return window && window.location && window.location.pathname
+}
+
+function isPortfolioPage() {
+  return getPathName() === '/portfolio'
+}
+
+function isBlogPage() {
+  return getPathName() === '/'
+}
+
 export default function SiteHeader() {
   return (
     <HeaderWrapper>
@@ -92,8 +125,12 @@ export default function SiteHeader() {
       <HeaderText>Quicksand</HeaderText>
       <PillList>
         <PillListTuple>
-          <PillTag to="/">Blog</PillTag>
-          <PillTag to="/portfolio">Portfolio</PillTag>
+          <PillTag isActive={isBlogPage()}>
+            <Link to="/">Blog</Link>
+          </PillTag>
+          <PillTag isActive={isPortfolioPage()}>
+            <Link to="/portfolio">Portfolio</Link>
+          </PillTag>
         </PillListTuple>
       </PillList>
     </HeaderWrapper>
