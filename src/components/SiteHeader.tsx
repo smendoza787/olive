@@ -37,7 +37,7 @@ function renderDarkModeStyles(props: StyledProps<{ isActive: boolean }>) {
       a:visited {
         color: #fff;
       }
-      background-color: #2e2e2e;
+      background-color: rgb(206, 103, 103);
     `
   }
   return css`
