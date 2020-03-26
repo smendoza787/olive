@@ -70,8 +70,8 @@ const PillTag = styled.div<{ isActive: boolean }>`
 
   &:hover {
     position: relative;
-    bottom: 3px;
-    box-shadow: 0px 5px 0px #000;
+    bottom: 2px;
+    box-shadow: 0px 4px 0px #000;
   }
 
   ${desktopOnly`
