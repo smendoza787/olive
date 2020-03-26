@@ -5,7 +5,7 @@ import PortfolioBlock from '../components/PortfolioBlock'
 function PortfolioPage() {
   return (
     <Layout>
-      <PortfolioBlock title="Stay Amigo" />
+      <h1>🚧Coming Soon 🚧</h1>
     </Layout>
   )
 }

@@ -22,15 +22,23 @@ const PortfolioWrapper = styled.div`
   }
 `
 
+const PortfolioImage = styled.div<{ src: string }>`
+  height: 100%;
+  width: 100%;
+  background-image: url(${({ src }) => src});
+  background-size: cover;
+`
+
 interface PortfolioBlockProps {
   title: string
+  imgSrc: string
 }
 
-function PortfolioBlock({ title }: PortfolioBlockProps) {
+function PortfolioBlock({ title, imgSrc }: PortfolioBlockProps) {
   return (
     <PortfolioWrapper>
       <h2>{title}</h2>
-      <p>Coming soon...</p>
+      
     </PortfolioWrapper>
   )
 }
