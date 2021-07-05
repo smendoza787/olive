@@ -14,7 +14,7 @@ export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
   transition: all .2s;
 
   &:hover {
-    transform: translateY(-3px)
+    transform: translateY(-3px);
     box-shadow: 0px 7px 0px #000;
     cursor: pointer;
   }

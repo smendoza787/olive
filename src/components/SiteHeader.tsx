@@ -93,16 +93,6 @@ const DesktopEmoji = styled.span`
   `}
 `
 
-const MobileEmoji = styled.span`
-  display: flex;
-  margin-top: 2rem;
-  justify-content: center;
-
-  ${tabletOnly`
-    display: none;
-  `}
-`
-
 function getPathName() {
   return typeof window !== `undefined` && window.location && window.location.pathname
 }
@@ -118,9 +108,6 @@ function isBlogPage() {
 export default function SiteHeader() {
   return (
     <HeaderWrapper>
-      <MobileEmoji>
-        <DopeMoji size={DopeMojiSize.MEDIUM} />
-      </MobileEmoji>
       <DesktopEmoji>
         <DopeMoji size={DopeMojiSize.LARGE} />
       </DesktopEmoji>
