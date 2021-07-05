@@ -2,17 +2,27 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { desktopOnly } from '../../helpers/styled'
 
-export const BlogPostListItemWrapper = styled.div`
-  padding-bottom: 3rem;
+export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
   font-family: 'Roboto Slab', sans-serif;
+  margin-top: 2rem;
+  padding: 1rem;
 
-  &:not(:last-child) {
-    border-bottom: 2px dotted black;
+  border-radius: 5px;
+  border: 2px solid #000;
+  box-shadow: 0px 4px 0px #000;
+
+  transition: all .2s;
+
+  &:hover {
+    transform: translateY(-3px)
+    box-shadow: 0px 7px 0px #000;
+    cursor: pointer;
   }
 
-  &:not(:first-child) {
-    padding-top: 2.5rem;
-  }
+  ${desktopOnly`
+    width: initial;
+    height: initial;
+  `}
 `
 
 export const BPTitle = styled(Link)`
@@ -45,7 +55,6 @@ export const BPHeader = styled.div`
   justify-content: space-between;
   font-size: 2rem;
   align-items: center;
-  padding: 0.75rem 0;
 
   ${desktopOnly`
     flex-direction: row;

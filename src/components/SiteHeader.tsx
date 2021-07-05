@@ -64,14 +64,16 @@ const PillTag = styled.div<{ isActive: boolean }>`
   justify-content: center;
   align-items: center;
 
+  transition: all .2s;
+
   &:not(:last-child) {
     margin-right: 1rem;
   }
 
   &:hover {
-    position: relative;
-    bottom: 2px;
     box-shadow: 0px 4px 0px #000;
+    transform: translateY(-2px);
+    cursor: pointer;
   }
 
   ${desktopOnly`
