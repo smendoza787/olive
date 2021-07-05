@@ -11,15 +11,15 @@ const BlogPostListItem = ({ blogPost }: BlogPostListItemProps) => {
   const imageSrc = 'https://' + blogPost.image.file.url.slice(2)
 
   return (
-    <Link to={`/${blogPost.slug}`}>
+    <Link style={{ textDecoration: 'none' }} to={`/${blogPost.slug}`}>
       <BlogPostListItemWrapper>
         <BPHeader>
-          <BPTitle to={`/${blogPost.slug}`}>{blogPost.title}</BPTitle>
+          <BPTitle>{blogPost.title}</BPTitle>
         </BPHeader>
         <BPBody>
-          <BPImage to={`/${blogPost.slug}`} src={imageSrc} />
+          <BPImage src={imageSrc} />
           <BPContentWrapper>
-            {blogPost.description}
+            <p>{blogPost.description}</p>
             <BPInnerContentWrapper>
               <BPTimestamp>
                 <i className="fas fa-calendar-edit">&nbsp;</i>

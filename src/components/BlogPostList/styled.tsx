@@ -25,7 +25,7 @@ export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
   `}
 `
 
-export const BPTitle = styled(Link)`
+export const BPTitle = styled.h3`
   font-family: 'Fredoka One', sans-serif;
   text-decoration: none;
   color: #000;
@@ -61,7 +61,7 @@ export const BPHeader = styled.div`
   `}
 `
 
-export const BPImage = styled(Link)<{ src: string }>`
+export const BPImage = styled.div<{ src: string }>`
   width: 100%;
   height: 10rem;
   background-size: cover;
