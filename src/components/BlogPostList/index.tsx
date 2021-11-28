@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { BlogPost } from '../../types/blogPost'
 import BlogPostListItem from './BlogPostListItem'
 
@@ -7,11 +7,11 @@ interface BlogPostListProps {
 }
 
 const BlogPostList = ({ posts }: BlogPostListProps) => (
-  <Fragment>
+  <section>
     {posts.map((bp, i: number) => (
-      <BlogPostListItem blogPost={bp} />
+      <BlogPostListItem key={bp.slug} blogPost={bp} />
     ))}
-  </Fragment>
+  </section>
 )
 
 export default BlogPostList
