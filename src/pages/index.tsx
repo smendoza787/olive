@@ -1,10 +1,9 @@
-import { graphql } from 'gatsby'
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import BlogPostList from '../components/BlogPostList'
 import Layout from '../components/layout'
 import { transformAllContentfulBlogPost } from '../helpers/graphql'
-import SiteHeader from '../components/SiteHeader'
 
 const IndexPage = ({ data }: { data: any }) => {
   const allBlogPosts = transformAllContentfulBlogPost(data)
