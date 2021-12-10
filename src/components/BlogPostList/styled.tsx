@@ -11,7 +11,7 @@ export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
   border: 2px solid #000;
   box-shadow: 0px 4px 0px #000;
 
-  transition: all .2s;
+  transition: all 0.2s;
 
   &:hover {
     transform: translateY(-3px);
@@ -114,6 +114,7 @@ export const BPRichContent = styled.div`
     padding: 1em 1.5em;
     display: block;
     word-wrap: break-word;
+    white-space: pre;
   }
 
   hr {
