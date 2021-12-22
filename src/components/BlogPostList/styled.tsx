@@ -5,6 +5,7 @@ export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
   font-family: 'Roboto Slab', sans-serif;
   margin-top: 2rem;
   padding: 1rem;
+  width: 50%;
 
   border-radius: 5px;
   border: 2px solid #000;
@@ -17,11 +18,20 @@ export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
     box-shadow: 0px 7px 0px #000;
     cursor: pointer;
   }
+`
 
-  ${desktopOnly`
-    width: initial;
-    height: initial;
-  `}
+export const Circle = styled.div`
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: #000;
+
+  margin-left: 1rem;
+  margin-bottom: 0.8rem;
+
+  &:first-of-type { 
+    margin-left: 0;
+  }
 `
 
 export const BPTitle = styled.h3`
@@ -51,7 +61,6 @@ export const BPTimestamp = styled.p`
 export const BPHeader = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   font-size: 2rem;
   align-items: center;
 
@@ -100,7 +109,7 @@ export const BPRichContent = styled.div`
   }
 
   code {
-    background: linear-gradient(to right, rgba(0, 0, 0, .6), rgb(24 108 112 / 55%));
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgb(24 108 112 / 55%));
     border: 1px solid #ddd;
     border-left: 1rem solid #00ff7e;
     color: white;

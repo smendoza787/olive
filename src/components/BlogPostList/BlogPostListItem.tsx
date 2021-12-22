@@ -2,17 +2,36 @@ import React from 'react'
 import { BlogPost } from '../../types/blogPost'
 import Link from 'gatsby-link'
 import { printRelativeDate } from '../../helpers/date'
-import { BlogPostListItemWrapper, BPHeader, BPTitle, BPTimestamp, BPBody, BPImage, BPContentWrapper, BPInnerContentWrapper } from './styled'
+import {
+  Circle,
+  BlogPostListItemWrapper,
+  BPHeader,
+  BPTitle,
+  BPTimestamp,
+  BPBody,
+  BPImage,
+  BPContentWrapper,
+  BPInnerContentWrapper,
+} from './styled'
 interface BlogPostListItemProps {
   blogPost: BlogPost
 }
+
+const MacHeader = () => (
+  <BPHeader>
+    <Circle />
+    <Circle />
+    <Circle />
+  </BPHeader>
+)
 
 const BlogPostListItem = ({ blogPost }: BlogPostListItemProps) => {
   const imageSrc = 'https://' + blogPost.image.file.url.slice(2)
 
   return (
-    <Link style={{ textDecoration: 'none' }} to={`/${blogPost.slug}`}>
-      <BlogPostListItemWrapper>
+    <BlogPostListItemWrapper>
+      <Link style={{ textDecoration: 'none' }} to={`/${blogPost.slug}`}>
+        <MacHeader />
         <BPHeader>
           <BPTitle>{blogPost.title}</BPTitle>
         </BPHeader>
@@ -29,8 +48,8 @@ const BlogPostListItem = ({ blogPost }: BlogPostListItemProps) => {
             </BPInnerContentWrapper>
           </BPContentWrapper>
         </BPBody>
-      </BlogPostListItemWrapper>
-    </Link>
+      </Link>
+    </BlogPostListItemWrapper>
   )
 }
 
