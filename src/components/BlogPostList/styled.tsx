@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import { desktopOnly } from '../../helpers/styled'
 
 export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
@@ -84,6 +83,7 @@ export const BPBody = styled.div`
 
 export const BPRichContent = styled.div`
   font-family: 'Roboto Slab', sans-serif;
+  font-size: 1.2rem;
   padding: 1rem 0;
   text-align: justify;
 
@@ -100,21 +100,22 @@ export const BPRichContent = styled.div`
   }
 
   code {
-    background: #f4f4f4;
+    background: linear-gradient(to right, rgba(0, 0, 0, .6), rgb(24 108 112 / 55%));
     border: 1px solid #ddd;
-    border-left: 3px solid #000;
-    color: #666;
+    border-left: 1rem solid #00ff7e;
+    color: white;
     page-break-inside: avoid;
     font-family: monospace;
-    font-size: 15px;
+    font-size: 1.5rem;
     line-height: 1.6;
-    margin-bottom: 1.6em;
+    margin-bottom: 1.6rem;
     max-width: 100%;
     overflow: auto;
-    padding: 1em 1.5em;
+    padding: 1rem 1.5rem;
     display: block;
     word-wrap: break-word;
     white-space: pre;
+    border-radius: 4px;
   }
 
   hr {

@@ -17,17 +17,11 @@ const HeaderText = styled.h1`
   font-size: 3.5rem;
 `
 
-const PillList = styled.div`
+const Nav = styled.div`
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-`
-
-const PillListTuple = styled.div`
-  padding: 5px;
-  display: flex;
-  width: 100%;
   justify-content: center;
+  align-items: center;
+  padding: 5px;
 `
 
 function renderDarkModeStyles(props: StyledProps<{ isActive: boolean }>) {
@@ -48,7 +42,7 @@ function renderDarkModeStyles(props: StyledProps<{ isActive: boolean }>) {
   `
 }
 
-const PillTag = styled.div<{ isActive: boolean }>`
+const NavItem = styled.div<{ isActive: boolean }>`
   ${renderDarkModeStyles}
 
   a {
@@ -64,7 +58,7 @@ const PillTag = styled.div<{ isActive: boolean }>`
   justify-content: center;
   align-items: center;
 
-  transition: all .2s;
+  transition: all 0.2s;
 
   &:not(:last-child) {
     margin-right: 1rem;
@@ -84,13 +78,8 @@ const PillTag = styled.div<{ isActive: boolean }>`
 `
 
 const DesktopEmoji = styled.span`
-  display: none;
   margin-top: 3.5rem;
   margin-bottom: 1.2rem;
-
-  ${tabletOnly`
-    display: inline;
-  `}
 `
 
 function getPathName() {
@@ -108,20 +97,16 @@ function isBlogPage() {
 export default function SiteHeader() {
   return (
     <HeaderWrapper>
-      <DesktopEmoji>
-        <DopeMoji size={DopeMojiSize.LARGE} />
-      </DesktopEmoji>
+      <DopeMoji size={DopeMojiSize.LARGE} />
       <HeaderText>Quicksand</HeaderText>
-      <PillList>
-        <PillListTuple>
-          <PillTag isActive={isBlogPage()}>
-            <Link to="/">Blog</Link>
-          </PillTag>
-          <PillTag isActive={isPortfolioPage()}>
-            <Link to="/portfolio">Portfolio</Link>
-          </PillTag>
-        </PillListTuple>
-      </PillList>
+      <Nav>
+        <NavItem isActive={isBlogPage()}>
+          <Link to="/">Blog</Link>
+        </NavItem>
+        <NavItem isActive={isPortfolioPage()}>
+          <Link to="/portfolio">Portfolio</Link>
+        </NavItem>
+      </Nav>
     </HeaderWrapper>
   )
 }

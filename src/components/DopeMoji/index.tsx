@@ -31,11 +31,11 @@ const EmojiSizeWrapper = styled.span<{ size: DopeMojiSize }>`
   font-size: ${({ size }) => {
     switch (size) {
       case DopeMojiSize.SMALL:
-        return '1rem'
+        return '4rem'
       case DopeMojiSize.MEDIUM:
-        return '2.5rem'
+        return '6rem'
       case DopeMojiSize.LARGE:
-        return '3.5rem'
+        return '6rem'
       default:
         return '2rem'
     }
