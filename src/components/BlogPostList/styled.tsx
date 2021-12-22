@@ -20,16 +20,22 @@ export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
   }
 `
 
+export const BPMacHeader = styled.div`
+  display: flex;
+`
+
 export const Circle = styled.div`
   height: 1rem;
   width: 1rem;
   border-radius: 50%;
   background-color: #000;
 
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   margin-bottom: 0.8rem;
 
-  &:first-of-type { 
+  margin-left: 0.5rem;
+
+  &:first-of-type {
     margin-left: 0;
   }
 `

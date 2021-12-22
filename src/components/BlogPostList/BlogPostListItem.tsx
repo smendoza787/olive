@@ -6,6 +6,7 @@ import {
   Circle,
   BlogPostListItemWrapper,
   BPHeader,
+  BPMacHeader,
   BPTitle,
   BPTimestamp,
   BPBody,
@@ -18,11 +19,11 @@ interface BlogPostListItemProps {
 }
 
 const MacHeader = () => (
-  <BPHeader>
+  <BPMacHeader>
     <Circle />
     <Circle />
     <Circle />
-  </BPHeader>
+  </BPMacHeader>
 )
 
 const BlogPostListItem = ({ blogPost }: BlogPostListItemProps) => {
