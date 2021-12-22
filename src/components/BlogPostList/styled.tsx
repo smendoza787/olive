@@ -133,6 +133,7 @@ export const BPContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: black;
 
   ${desktopOnly`
     padding-left: 1rem;
