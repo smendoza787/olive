@@ -5,7 +5,6 @@ export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
   font-family: 'Roboto Slab', sans-serif;
   margin-top: 2rem;
   padding: 1rem;
-  width: 50%;
 
   border-radius: 5px;
   border: 2px solid #000;
@@ -18,6 +17,10 @@ export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
     box-shadow: 0px 7px 0px #000;
     cursor: pointer;
   }
+
+  ${desktopOnly`
+    width: 50%;
+  `}
 `
 
 export const BPMacHeader = styled.div`
@@ -149,6 +152,10 @@ export const BPContentWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   color: black;
+
+  a {
+    color: black;
+  }
 
   ${desktopOnly`
     padding-left: 1rem;
