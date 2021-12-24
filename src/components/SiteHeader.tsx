@@ -97,7 +97,7 @@ function isBlogPage() {
 export default function SiteHeader() {
   return (
     <HeaderWrapper>
-      🤪
+      <span style={{ fontSize: '7rem' }}>🤪</span>
       <HeaderText>Quicksand</HeaderText>
       <Nav>
         <NavItem isActive={isBlogPage()}>
