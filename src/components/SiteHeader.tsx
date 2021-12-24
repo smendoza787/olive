@@ -97,7 +97,7 @@ function isBlogPage() {
 export default function SiteHeader() {
   return (
     <HeaderWrapper>
-      <DopeMoji size={DopeMojiSize.LARGE} />
+      🤪
       <HeaderText>Quicksand</HeaderText>
       <Nav>
         <NavItem isActive={isBlogPage()}>

@@ -118,10 +118,10 @@ export const BPRichContent = styled.div`
   }
 
   code {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgb(24 108 112 / 55%));
+    background-color: #fc9c9c;
     border: 1px solid #ddd;
-    border-left: 1rem solid #00ff7e;
-    color: white;
+    border-left: 1rem solid rgb(206,103,103);
+    color: #000;
     page-break-inside: avoid;
     font-family: monospace;
     font-size: 1.5rem;
