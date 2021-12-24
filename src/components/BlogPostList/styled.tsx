@@ -4,7 +4,6 @@ import { desktopOnly } from '../../helpers/styled'
 export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
   font-family: 'Roboto Slab', sans-serif;
   margin-top: 2rem;
-  padding: 1rem;
 
   border-radius: 5px;
   border: 2px solid #000;
@@ -25,30 +24,31 @@ export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
 
 export const BPMacHeader = styled.div`
   display: flex;
+  border-bottom: 2px solid #000;
+  margin: 0 -1px;
+  align-items: center;
+`
+
+export const BPContent = styled.div`
+  padding: 8px;
 `
 
 export const Circle = styled.div`
-  height: 1rem;
-  width: 1rem;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
-  background-color: #000;
-
-  /* margin-left: 1rem; */
-  margin-bottom: 0.8rem;
-
+  border: 3px solid #000;
   margin-left: 0.5rem;
-
-  &:first-of-type {
-    margin-left: 0;
-  }
+  margin-bottom: 0.3rem;
+  margin-top: 0.3rem;
 `
 
 export const BPTitle = styled.h3`
   font-family: 'Fredoka One', sans-serif;
   text-decoration: none;
   color: #000;
-  margin-bottom: 1rem;
-  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
   font-size: 1.75rem;
   line-height: 1.75rem;
 
@@ -78,10 +78,10 @@ export const BPHeader = styled.div`
   `}
 `
 
-export const BPImage = styled.div<{ src: string }>`
+export const BPImage = styled.img<{ src: string }>`
   width: 100%;
   height: 10rem;
-  background-size: cover;
+  object-fit: cover;
   background-position: center;
   background-image: url(${({ src }) => src});
   border-radius: 3px;

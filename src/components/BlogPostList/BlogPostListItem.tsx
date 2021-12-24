@@ -13,6 +13,7 @@ import {
   BPImage,
   BPContentWrapper,
   BPInnerContentWrapper,
+  BPContent,
 } from './styled'
 interface BlogPostListItemProps {
   blogPost: BlogPost
@@ -33,22 +34,24 @@ const BlogPostListItem = ({ blogPost }: BlogPostListItemProps) => {
     <BlogPostListItemWrapper>
       <Link style={{ textDecoration: 'none' }} to={`/${blogPost.slug}`}>
         <MacHeader />
-        <BPHeader>
-          <BPTitle>{blogPost.title}</BPTitle>
-        </BPHeader>
-        <BPBody>
-          <BPImage src={imageSrc} />
-          <BPContentWrapper>
-            <p>{blogPost.description}</p>
-            <BPInnerContentWrapper>
-              <BPTimestamp>
-                <i className="fas fa-calendar-edit">&nbsp;</i>
-                {printRelativeDate(blogPost.date)}
-              </BPTimestamp>
-              <Link to={`/${blogPost.slug}`}>Read More</Link>
-            </BPInnerContentWrapper>
-          </BPContentWrapper>
-        </BPBody>
+        <BPContent>
+          <BPHeader>
+            <BPTitle>{blogPost.title}</BPTitle>
+          </BPHeader>
+          <BPBody>
+            <BPImage src={imageSrc} />
+            <BPContentWrapper>
+              <p>{blogPost.description}</p>
+              <BPInnerContentWrapper>
+                <BPTimestamp>
+                  <i className="fas fa-calendar-edit">&nbsp;</i>
+                  {printRelativeDate(blogPost.date)}
+                </BPTimestamp>
+                <Link to={`/${blogPost.slug}`}>Read More</Link>
+              </BPInnerContentWrapper>
+            </BPContentWrapper>
+          </BPBody>
+        </BPContent>
       </Link>
     </BlogPostListItemWrapper>
   )
