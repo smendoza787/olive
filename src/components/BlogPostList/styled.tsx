@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { desktopOnly } from '../../helpers/styled'
+import { desktopOnly, tabletOnly } from '../../helpers/styled'
 
 export const BlogPostListItemWrapper = styled.div<{ isActive?: boolean }>`
   font-family: 'Roboto Slab', sans-serif;
@@ -49,8 +49,6 @@ export const BPTitle = styled.h3`
   color: #000;
   margin-top: 16px;
   margin-bottom: 16px;
-  font-size: 1.75rem;
-  line-height: 1.75rem;
 
   ${desktopOnly`
     margin-right: 0.75rem;
@@ -59,17 +57,12 @@ export const BPTitle = styled.h3`
 
 export const BPTimestamp = styled.p`
   font-size: 1rem;
-  color: lightgray;
-  margin-bottom: 1.5rem;
-
-  ${desktopOnly`
-    margin-bottom: 0;
-  `}
+  color: #8a8a8a;
+  margin-bottom: 0;
 `
 
 export const BPHeader = styled.div`
   display: flex;
-  flex-direction: column;
   font-size: 2rem;
   align-items: center;
 
@@ -80,7 +73,7 @@ export const BPHeader = styled.div`
 
 export const BPImage = styled.img<{ src: string }>`
   width: 100%;
-  height: 10rem;
+  height: 8rem;
   object-fit: cover;
   background-position: center;
   background-image: url(${({ src }) => src});
@@ -91,11 +84,10 @@ export const BPImage = styled.img<{ src: string }>`
   `}
 `
 export const BPBody = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
 
-  ${desktopOnly`
-    flex-direction: row;
+  ${tabletOnly`
+    grid-template-columns: minmax(auto, 20rem) 1fr;
   `}
 `
 
@@ -120,7 +112,7 @@ export const BPRichContent = styled.div`
   code {
     background-color: #fc9c9c;
     border: 1px solid #ddd;
-    border-left: 1rem solid rgb(206,103,103);
+    border-left: 1rem solid rgb(206, 103, 103);
     color: #000;
     page-break-inside: avoid;
     font-family: monospace;
@@ -152,13 +144,14 @@ export const BPContentWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   color: black;
-
+  margin-top: 0.8rem;
+  
   a {
     color: black;
   }
-
-  ${desktopOnly`
-    padding-left: 1rem;
+  
+  ${tabletOnly`
+    padding-left: 1.6rem;
   `}
 `
 
