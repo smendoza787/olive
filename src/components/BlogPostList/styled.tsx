@@ -151,6 +151,7 @@ export const BPContentWrapper = styled.div`
   }
   
   ${tabletOnly`
+    margin-top: 0;
     padding-left: 1.6rem;
   `}
 `
