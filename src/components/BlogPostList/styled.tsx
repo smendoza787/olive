@@ -110,10 +110,10 @@ export const BPRichContent = styled.div`
   }
 
   code {
-    background-color: #fc9c9c;
+    background-color: #000;
     border: 1px solid #ddd;
-    border-left: 1rem solid rgb(206, 103, 103);
-    color: #000;
+    border-left: 1rem solid dodgerblue;
+    color: #fff;
     page-break-inside: avoid;
     font-family: monospace;
     font-size: 1.5rem;
