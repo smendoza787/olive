@@ -47,8 +47,6 @@ export const BPTitle = styled.h3`
   font-family: 'Fredoka One', sans-serif;
   text-decoration: none;
   color: #000;
-  margin-top: 16px;
-  margin-bottom: 16px;
 
   ${desktopOnly`
     margin-right: 0.75rem;
