@@ -34,8 +34,8 @@ export const BPContent = styled.div`
 `
 
 export const Circle = styled.div`
-  height: 12px;
-  width: 12px;
+  height: 10px;
+  width: 10px;
   border-radius: 50%;
   background-color: #000;
   margin-left: 0.5rem;

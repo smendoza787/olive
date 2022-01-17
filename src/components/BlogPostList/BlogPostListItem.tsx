@@ -47,7 +47,6 @@ const BlogPostListItem = ({ blogPost }: BlogPostListItemProps) => {
                   <i className="fas fa-calendar-edit">&nbsp;</i>
                   {printRelativeDate(blogPost.date)}
                 </BPTimestamp>
-                <Link to={`/${blogPost.slug}`}>Read More</Link>
               </BPInnerContentWrapper>
             </BPContentWrapper>
           </BPBody>
