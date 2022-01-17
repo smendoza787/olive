@@ -6,15 +6,26 @@ import { Link } from 'gatsby'
 
 const HeaderWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin-top: 1.5rem;
+  font-size: 3.5rem;
+
+  ${desktopOnly`
+    flex-direction: column;
+    font-size: 5rem;
+  `}
 `
 
 const HeaderText = styled.h1`
+  margin-bottom: 0;
+  margin-left: 0.4rem;
   font-family: 'Fredoka One', sans-serif;
   font-size: 3.5rem;
+
+  ${desktopOnly`
+    font-size: 5rem;
+  `}
 `
 
 const Nav = styled.div`
@@ -97,16 +108,16 @@ function isBlogPage() {
 export default function SiteHeader() {
   return (
     <HeaderWrapper>
-      <span style={{ fontSize: '7rem' }}>🤪</span>
+      <div>🤪</div>
       <HeaderText>Quicksand</HeaderText>
-      <Nav>
+      {/* <Nav>
         <NavItem isActive={isBlogPage()}>
           <Link to="/">Blog</Link>
         </NavItem>
         <NavItem isActive={isPortfolioPage()}>
           <Link to="/portfolio">Portfolio</Link>
         </NavItem>
-      </Nav>
+      </Nav> */}
     </HeaderWrapper>
   )
 }
